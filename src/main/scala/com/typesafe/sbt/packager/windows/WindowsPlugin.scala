@@ -6,6 +6,7 @@ import sbt._
 import sbt.Keys.{mappings, name, normalizedName, packageBin, sourceDirectory, streams, target, version}
 import packager.Keys.{maintainer, packageDescription, packageName, packageSummary}
 import SbtNativePackager.Universal
+import sys.process.Process
 
 /**
   * == Windows Plugin ==

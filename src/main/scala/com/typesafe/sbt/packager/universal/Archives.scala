@@ -3,6 +3,7 @@ package packager
 package universal
 
 import sbt._
+import sys.process.Process
 
 /** Helper methods to package up files into compressed archives. */
 object Archives {

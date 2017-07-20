@@ -4,6 +4,7 @@ package rpm
 
 import sbt._
 import com.typesafe.sbt.packager.linux.LinuxSymlink
+import sys.process.{ Process, ProcessLogger }
 
 object RpmHelper {
 

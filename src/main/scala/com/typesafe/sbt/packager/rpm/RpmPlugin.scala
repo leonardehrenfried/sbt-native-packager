@@ -8,6 +8,7 @@ import com.typesafe.sbt.SbtNativePackager.Linux
 import com.typesafe.sbt.packager.SettingsHelper
 import com.typesafe.sbt.packager.Keys._
 import com.typesafe.sbt.packager.linux._
+import sys.process.Process
 
 /**
   * Plugin containing all generic values used for packaging rpms.

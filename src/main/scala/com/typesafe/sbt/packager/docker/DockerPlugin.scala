@@ -22,6 +22,7 @@ import packager.Keys._
 import linux.LinuxPlugin.autoImport.{daemonUser, defaultLinuxInstallLocation}
 import universal.UniversalPlugin.autoImport.stage
 import SbtNativePackager.{Linux, Universal}
+import sys.process.{ Process, ProcessLogger }
 
 /**
   * == Docker Plugin ==

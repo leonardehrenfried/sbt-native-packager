@@ -11,6 +11,7 @@ import org.apache.commons.compress.utils.IOUtils
 import sbt._
 
 import scala.collection.JavaConverters._
+import sys.process.Process
 
 /**
   * Module with functions associated with processing zip files.

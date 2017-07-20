@@ -23,7 +23,26 @@ ghpages.settings
 git.remoteRepo := "git@github.com:sbt/sbt-native-packager.git"
 
 // scripted test settings
-scriptedSettings
+// workaround for scripted not recognising sbt 1.0.0-RC2: https://github.com/sbt/sbt/issues/3325
+ScriptedPlugin.scriptedSettings.filterNot(_.key.key.label == libraryDependencies.key.label)
+
+sbtPlugin := true
+
+libraryDependencies ++= {
+  CrossVersion.binarySbtVersion(scriptedSbt.value) match {
+    case "0.13" =>
+      Seq(
+        "org.scala-sbt" % "scripted-sbt" % scriptedSbt.value % scriptedConf.toString,
+        "org.scala-sbt" % "sbt-launch" % scriptedSbt.value % scriptedLaunchConf.toString
+      )
+    case _ =>
+      Seq(
+        "org.scala-sbt" %% "scripted-sbt" % scriptedSbt.value % scriptedConf.toString,
+        "org.scala-sbt" % "sbt-launch" % scriptedSbt.value % scriptedLaunchConf.toString
+      )
+  }
+}
+
 scriptedLaunchOpts += "-Dproject.version=" + version.value
 
 // Release configuration
